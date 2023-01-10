@@ -17,6 +17,21 @@
  * Listen here: https://youtu.be/X0MDALpV29s
  *
  */
+function toggleVideo({ currentTarget: wrapper }) {
+    let video = wrapper.querySelector('.video');
+    let playpause = wrapper.querySelector('.playpause');
+    if (video.paused) {
+      video.play();
+      playpause.setAttribute('hidden', '');
+    } else {
+      video.pause();
+      playpause.removeAttribute('hidden');
+    }
+  }
+  
+  document.querySelectorAll('.wrapper')
+    .forEach(wrapper => wrapper.addEventListener('click', toggleVideo));
+    
 $(document).on('click', function(){
     document.getElementById("my_audio").play();
     console.log('Shaadi me zaroor aana');
